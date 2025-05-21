@@ -21,7 +21,7 @@ if ($_SESSION["tipo"] !== "admin") {
 
 <body>
     <header>
-        <h1>TopGames</h1>
+        <h1>Compra Tu Juego</h1>
         <p class="Usuario"><?php echo "Usuario: " . htmlspecialchars($_SESSION["usuario"]); ?></p>
         <div id="clock"></div>
         <!-- Script para que salga la hora que es en la pagina -->
@@ -59,6 +59,8 @@ if ($_SESSION["tipo"] !== "admin") {
                 <a href="clientes.php">Clientes</a>
                 <a href="añadirJuego.php">Añadir Juego</a>
                 <a href="registrarUsuario.php">Registrar Usuario</a>
+                <a href="consultarSaldo.php">Consultar Saldo</a>
+                <a href="logout.php">Cerrar Sesión</a>
             </div>
         </div>
         <script>
@@ -74,6 +76,7 @@ if ($_SESSION["tipo"] !== "admin") {
                 <a href="clientes.php">Clientes</a>
                 <a href="añadirJuego.php">Añadir Juego</a>
                 <a href="registrarUsuario.php">Registrar Usuario</a>
+                <a href="consultarSaldo.php">Consultar Saldo</a>
                 <a href="logout.php">Cerrar Sesión</a>
             </nav>
         </div>
