@@ -106,13 +106,8 @@ if ($result->num_rows == 0) {
     <main>
         <h2>Juegos mas destacados</h2>
         <div class="slider">
-            <div class="slides">
-                <div class="slide"><img src="img/fifa.avif" alt="Slide 1"></div>
-                <div class="slide"><img src="img/gta.jpg" alt="Slide 2"></div>
-                <div class="slide"><img src="img/minecraft.jpg" alt="Slide 3"></div>
-            </div>
+            <img id="slider-img" src="img/fifa.avif" alt="Slide 1" style="width:100%; height:300px;">
         </div>
-
         <script>
             // Array con las rutas de las imágenes y los textos alternativos
             const imagenes = [{
