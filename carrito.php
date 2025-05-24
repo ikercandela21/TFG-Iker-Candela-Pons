@@ -16,7 +16,7 @@ if ($_SESSION["tipo"] == "admin") {
     <link rel="icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/css.css">
-    
+
 </head>
 
 <body>
@@ -33,17 +33,21 @@ if ($_SESSION["tipo"] == "admin") {
                 let s = today.getSeconds();
                 m = checkTime(m);
                 s = checkTime(s);
+                //Escribe la hora en el div con el id clock
                 document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+                //Llama a la funcion ca un segundo
                 setTimeout(startTime, 1000);
             }
 
+            //Esta funcion añade un cero a la izquierda si el numero solo tiene una cifra
             function checkTime(i) {
                 if (i < 10) {
                     i = "0" + i
-                }; 
+                };
                 return i;
             }
 
+            //Esto hace que cuando la pagina se cargue llame a la funcion startTime para que vuelva a empezar
             window.onload = function() {
                 startTime();
             };
@@ -59,7 +63,7 @@ if ($_SESSION["tipo"] == "admin") {
                 <a href="#">Servicios</a>
                 <a href="#">Contacto</a>
                 <a href="biblioteca.php">Biblioteca</a>
-                <a href="logout.php" style="float: right; margin-left: 15px;">Cerrar Sesión</a>
+                <a href="logout.php">Cerrar Sesión</a>
             </div>
         </div>
         <div>
@@ -86,11 +90,11 @@ if ($_SESSION["tipo"] == "admin") {
     <main class="main-carrito">
         <?php
 
-        $sql="SELECT * FROM carrito WHERE usuario_id = {$_SESSION['usuario_id']}";
+        $sql = "SELECT * FROM carrito WHERE usuario_id = {$_SESSION['usuario_id']}";
         $result = $conn->query($sql);
         $productos = array();
         if ($result->num_rows > 0) {
-        
+
             while ($row = $result->fetch_assoc()) {
                 $productos[] = $row;
             }
@@ -146,7 +150,7 @@ if ($_SESSION["tipo"] == "admin") {
         ?>
 
         </div>
-        
+
     </main>
     <footer>
         &copy; 2025 Compra Tu Juego. Todos los derechos reservados.

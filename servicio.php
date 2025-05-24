@@ -58,7 +58,7 @@ if ($_SESSION["tipo"] == "admin") {
                 <a href="principal.php">Inicio</a>
                 <a href="servicios.php">Servicios</a>
                 <a href="biblioteca.php">Biblioteca</a>
-                <a href="logout.php" style="float: right; margin-left: 15px;">Cerrar Sesión</a>
+                <a href="logout.php" >Cerrar Sesión</a>
             </div>
         </div>
         <div>

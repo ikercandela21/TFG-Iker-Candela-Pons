@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         echo "Usuario o contraseña incorrectos";
-        header("Location:inicio.php");
+        header("Location:index.php");
         exit();
     }
 

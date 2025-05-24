@@ -83,12 +83,12 @@ if ($_SESSION["tipo"] !== "admin") {
         </div>
     </header>
     <main>
+        <div class='tabla-responsiva'>
         <?php
         $id = $_GET["id"];
         $sql = "SELECT * FROM usuarios where id=$id";
         $result = mysqli_query($conn, $sql);
         if ($result && $result->num_rows > 0) {
-            echo "<div class='tabla-responsiva'>";
             echo "<form action='' method='post'>
                 <table>
                 <tr>
@@ -111,8 +111,10 @@ if ($_SESSION["tipo"] !== "admin") {
                 </table>
                 <button class='actualizar-Usuario'>Actualizar</button>
                 </form>";
-                echo "</div>";
             }
+            ?>
+            </div>
+            <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $nombre = $_POST["nombre"];
                 $usuario = $_POST["usuario"];

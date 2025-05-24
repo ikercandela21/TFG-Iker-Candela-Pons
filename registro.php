@@ -10,18 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($nombre) && !empty($usuario) && !empty($contraseña) && !empty($email)) {
         $sql = "INSERT INTO usuarios (nombre, usuario, email, contraseña, tipo) VALUES ('$nombre', '$usuario', '$email', '$contraseña', 'cliente')";
 
-        if ($conexion->query($sql) == true) {
+        if ($conn->query($sql) == true) {
             echo "Se ha registrado corectamente";
-            header("Location:inicio.php");
+            header("Location:index.php");
             exit();
         } else {
-            die("Error al registrar: " . $conexion->error);
+            die("Error al registrar: " . $conn->error);
         }
     } else {
         die("Todos los campos son obligatorios.");
     }
     echo "Se ha registrado corectamente";
-    header("Location:inicio.php");
+    header("Location:index.php");
     exit();
 }
 
@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <h1>Bienvenido a Compra Tu Juego</h1>
     </header>
-    <main class="main-registro">
+    <main class="main-InicioSesion">
+        <div class="container">
         <h2>Formulario de Registro</h2>
         <form action="" method="post">
 
@@ -57,8 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" id="email" name="email" required placeholder="Email"><br><br>
 
             <input type="submit" value="Registrar">
-            <p>Ya tienes una cuenta? <a href="inicio.php">Iniciar sesión</a></p>
+            <p>Ya tienes una cuenta? <a href="index.php" class="registro">Iniciar sesión</a></p>
         </form>
+        </div>
     </main>
 </body>
 

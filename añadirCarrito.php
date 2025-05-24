@@ -2,11 +2,10 @@
 include "conexionbd.php";
 session_start();
 
-// $cantidad = $_SESSION['producto']['cantidad'];
-$id=$_GET['id'];
+$id = $_GET['id'];
 $producto = $_SESSION['producto'];
 
-$sql= "SELECT * FROM carrito WHERE usuario_id = ? AND juego_id = ?";
+$sql = "SELECT * FROM carrito WHERE usuario_id = ? AND juego_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $_SESSION["usuario_id"], $producto['id']);
 $stmt->execute();
@@ -21,13 +20,12 @@ if ($result->num_rows > 0) {
     echo "El producto se ha añadido de 1 al carrito";
     header("Location:principal.php");
     exit();
-
 } else {
 
     $sql = "INSERT INTO carrito (usuario_id, juego_id, cantidad) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
-   
-    $producto = $_SESSION["producto"]; 
+
+    $producto = $_SESSION["producto"];
     $cantidad = $_SESSION["producto"]['cantidad'] + 1;
     $stmt->bind_param("iii", $_SESSION["usuario_id"], $producto['id'], $cantidad);
     $stmt->execute();

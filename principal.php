@@ -114,26 +114,39 @@ if ($result->num_rows == 0) {
         </div>
 
         <script>
+            // Array con las rutas de las imágenes y los textos alternativos
+            const imagenes = [{
+                    src: "img/fifa.avif",
+                    alt: "Slide 1"
+                },
+                {
+                    src: "img/gta.jpg",
+                    alt: "Slide 2"
+                },
+                {
+                    src: "img/minecraft.jpg",
+                    alt: "Slide 3"
+                }
+            ];
             var currentIndex = 0;
 
-            $(document).ready(function() {
-                var imagenes = [
-                    "img/fifa.avif",
-                    "img/gta.jpg",
-                    "img/minecraft.jpg"
-                ];
-                var slider = $('.slides');
-                var totalSlides = imagenes.length;
+            function slide() {
+                currentIndex = (currentIndex + 1) % imagenes.length;
+                // Creamos un nuevo objeto imagen
+                var nuevaImagen = new Image();
+                nuevaImagen.src = imagenes[currentIndex].src;
+                nuevaImagen.alt = imagenes[currentIndex].alt;
+                nuevaImagen.style.width = "100%";
+                nuevaImagen.style.height = "300px";
+                // Cuando la imagen esté cargada, la mostramos en el slider
+                nuevaImagen.onload = function() {
+                    var sliderImg = document.getElementById("slider-img");
+                    sliderImg.src = nuevaImagen.src;
+                    sliderImg.alt = nuevaImagen.alt;
+                };
+            }
 
-                function mostrarSlide(index) {
-                    slider.css('transform', 'translateX(-' + (index * 100) + '%)');
-                }
-
-                setInterval(function() {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    mostrarSlide(currentIndex);
-                }, 3000);
-            });
+            setInterval(slide(), 3000);
         </script>
 
         <h2>Lista de juegos</h2>
@@ -180,37 +193,67 @@ if ($result->num_rows == 0) {
                 });
             </script>
         </div>
+        <div class="cartas">
+            <?php
 
-        <?php
+            if (isset($_POST['lupa'])) {
+                $lupa = $_POST['lupa'];
+                $sql = "SELECT * FROM juegos WHERE nombre LIKE '%$lupa%'";
 
-        if (isset($_POST['lupa'])) {
-            $lupa = $_POST['lupa'];
-            $sql = "SELECT * FROM juegos WHERE nombre LIKE '%$lupa%'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    echo '<div class="card-container">';
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<div class="card">';
+                        echo '<img src="img/' . $row["imagen"] . '" alt="' . $row["nombre"] . '" name="imagen">';
+                        echo '<h3>' . $row["nombre"] . '</h3>';
+                        echo '<p>' . $row["descripcion"] . '</p>';
+                        echo '<p>Stock: ' . $row["stock"] . '</p>';
+                        echo '<p>Precio: ' . $row["precio"] . '€</p>';
+                        echo '<form method="post" action="comprobarStock.php">';
+                        echo '<input type="hidden" name="id" value="' . $row["id"] . '">';
+                        echo '<input type="hidden" name="nombre" value="' . $row["nombre"] . '">';
+                        echo '<input type="hidden" name="descripcion" value="' . $row["descripcion"] . '">';
+                        echo '<input type="hidden" name="stock" value="' . $row["stock"] . '">';
+                        echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">';
+                        echo '<input type="hidden" name="imagen" value="' . $row["imagen"] . '">';
+                        echo '<button type="submit">Añadir al carro</button>';
+                        echo '</form>';
+                        echo '</div>';
+                    }
+                    echo "</div>";
+                } else {
+                    echo "No hay productos disponibles.";
+                    $sql = "SELECT * FROM juegos";
+                    $result = $conn->query($sql);
 
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                echo '<div class="card-container">';
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="card">';
-                    echo '<img src="img/' . $row["imagen"] . '" alt="' . $row["nombre"] . '" style="width: 100%; height: 200px;" name="imagen">';
-                    echo '<h3>' . $row["nombre"] . '</h3>';
-                    echo '<p>' . $row["descripcion"] . '</p>';
-                    echo '<p>Stock: ' . $row["stock"] . '</p>';
-                    echo '<p>Precio: ' . $row["precio"] . '€</p>';
-                    echo '<form method="post" action="comprobarStock.php">';
-                    echo '<input type="hidden" name="id" value="' . $row["id"] . '">';
-                    echo '<input type="hidden" name="nombre" value="' . $row["nombre"] . '">';
-                    echo '<input type="hidden" name="descripcion" value="' . $row["descripcion"] . '">';
-                    echo '<input type="hidden" name="stock" value="' . $row["stock"] . '">';
-                    echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">';
-                    echo '<input type="hidden" name="imagen" value="' . $row["imagen"] . '">';
-                    echo '<button type="submit">Añadir al carro</button>';
-                    echo '</form>';
-                    echo '</div>';
+                    if ($result->num_rows > 0) {
+                        echo '<div class="card-container">';
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="card">';
+                            echo '<img src="img/' . $row["imagen"] . '" alt="' . $row["nombre"] . '" style="width: 100%; height: 200px;" name="imagen">';
+                            echo '<h3>' . $row["nombre"] . '</h3>';
+                            echo '<p>' . $row["descripcion"] . '</p>';
+                            echo '<p>Stock: ' . $row["stock"] . '</p>';
+                            echo '<p>Precio: ' . $row["precio"] . '€</p>';
+                            echo '<form method="post" action="comprobarStock.php">';
+                            echo '<input type="hidden" name="id" value="' . $row["id"] . '">';
+                            echo '<input type="hidden" name="nombre" value="' . $row["nombre"] . '">';
+                            echo '<input type="hidden" name="descripcion" value="' . $row["descripcion"] . '">';
+                            echo '<input type="hidden" name="stock" value="' . $row["stock"] . '">';
+                            echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">';
+                            echo '<input type="hidden" name="imagen" value="' . $row["imagen"] . '">';
+                            echo '<button type="submit">Añadir al carro</button>';
+                            echo '</form>';
+                            echo '</div>';
+                        }
+                        echo "</div>";
+                    } else {
+                        echo "No hay productos disponibles.";
+                    }
                 }
-                echo "</div>";
             } else {
-                echo "No hay productos disponibles.";
+
                 $sql = "SELECT * FROM juegos";
                 $result = $conn->query($sql);
 
@@ -239,43 +282,13 @@ if ($result->num_rows == 0) {
                     echo "No hay productos disponibles.";
                 }
             }
-        } else {
-
-            $sql = "SELECT * FROM juegos";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                echo '<div class="card-container">';
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="card">';
-                    echo '<img src="img/' . $row["imagen"] . '" alt="' . $row["nombre"] . '" style="width: 100%; height: 200px;" name="imagen">';
-                    echo '<h3>' . $row["nombre"] . '</h3>';
-                    echo '<p>' . $row["descripcion"] . '</p>';
-                    echo '<p>Stock: ' . $row["stock"] . '</p>';
-                    echo '<p>Precio: ' . $row["precio"] . '€</p>';
-                    echo '<form method="post" action="comprobarStock.php">';
-                    echo '<input type="hidden" name="id" value="' . $row["id"] . '">';
-                    echo '<input type="hidden" name="nombre" value="' . $row["nombre"] . '">';
-                    echo '<input type="hidden" name="descripcion" value="' . $row["descripcion"] . '">';
-                    echo '<input type="hidden" name="stock" value="' . $row["stock"] . '">';
-                    echo '<input type="hidden" name="precio" value="' . $row["precio"] . '">';
-                    echo '<input type="hidden" name="imagen" value="' . $row["imagen"] . '">';
-                    echo '<button type="submit">Añadir al carro</button>';
-                    echo '</form>';
-                    echo '</div>';
-                }
-                echo "</div>";
-            } else {
-                echo "No hay productos disponibles.";
-            }
-        }
-        $conn->close();
-        ?>
+            $conn->close();
+            ?>
         </div>
     </main>
     <footer>
-    <p>&copy; 2025 Compra Tu Juego . Todos los derechos reservados.</p>
-</footer>
+        <p>&copy; 2025 Compra Tu Juego . Todos los derechos reservados.</p>
+    </footer>
 </body>
 
 </html>

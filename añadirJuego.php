@@ -29,10 +29,13 @@ session_start();
                 let s = today.getSeconds();
                 m = checkTime(m);
                 s = checkTime(s);
+                //Escribe la hora en el div con el id clock
                 document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
-                setTimeout(startTime, 1000);
+                //Llama a la funcion ca un segundo
+                setTimeout(startTime, 1000); 
             }
 
+            //Esta funcion añade un cero a la izquierda si el numero solo tiene una cifra
             function checkTime(i) {
                 if (i < 10) {
                     i = "0" + i
@@ -40,6 +43,7 @@ session_start();
                 return i;
             }
 
+            //Esto hace que cuando la pagina se cargue llame a la funcion startTime para que vuelva a empezar
             window.onload = function() {
                 startTime();
             };
