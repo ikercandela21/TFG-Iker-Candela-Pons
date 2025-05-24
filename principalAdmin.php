@@ -90,7 +90,7 @@ if ($_SESSION["tipo"] !== "admin") {
         <script>
             // Array con las rutas de las imágenes y los textos alternativos
             const imagenes = [{
-                    src: "img/fifa.jpeg",
+                    src: "img/fifa.avif",
                     alt: "Slide 1"
                 },
                 {
@@ -120,7 +120,7 @@ if ($_SESSION["tipo"] !== "admin") {
                 };
             }
 
-            setInterval(slide(), 3000);
+            setInterval(slide, 3000);
         </script>
         
         <div class="cartas">

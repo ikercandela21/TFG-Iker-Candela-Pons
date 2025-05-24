@@ -141,7 +141,7 @@ if ($result->num_rows == 0) {
                 };
             }
 
-            setInterval(slide(), 3000);
+            setInterval(slide, 3000);
         </script>
 
         <h2>Lista de juegos</h2>
