@@ -14,7 +14,7 @@ $sqlCreacionTablaJuegos = "CREATE TABLE IF NOT EXISTS juegos(
         nombre VARCHAR(50) NOT NULL,
         descripcion TEXT NOT NULL,
         stock INT NOT NULL,
-        imagen VARCHAR(50) NOT NULL,
+        imagen BLOB NOT NULL,
         precio FLOAT NOT NULL
     )";
 $sqlCreacionTablaPedidos = "CREATE TABLE IF NOT EXISTS pedidos(

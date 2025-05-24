@@ -90,7 +90,7 @@ if ($_SESSION["tipo"] !== "admin") {
         <script>
             // Array con las rutas de las imágenes y los textos alternativos
             const imagenes = [{
-                    src: "img/fifa.avif",
+                    src: "img/fifa.jpeg",
                     alt: "Slide 1"
                 },
                 {
