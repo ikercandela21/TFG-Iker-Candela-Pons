@@ -1,6 +1,10 @@
 <?php
 include "conexionbd.php";
 session_start();
+if ($_SESSION["tipo"] !== "admin") {
+    echo "<p>No tienes permiso para acceder a esta página.</p>";
+    exit();
+}
 unset($_SESSION['carrito']);
 
 $sql = "SELECT juego_id, cantidad FROM carrito WHERE usuario_id = ?";

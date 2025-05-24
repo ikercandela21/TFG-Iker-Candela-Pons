@@ -2,6 +2,10 @@
 
 include "conexionbd.php";
 session_start();
+if ($_SESSION["tipo"] !== "admin") {
+    echo "<p>No tienes permiso para acceder a esta página.</p>";
+    exit();
+}
 
 $id = $_GET['id'];
 
