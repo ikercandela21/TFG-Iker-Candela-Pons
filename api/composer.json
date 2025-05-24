@@ -1,0 +1,15 @@
+{
+    "name": "ikerc/api",
+    "description": "Pago con stripe",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iker"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "stripe/stripe-php": "^16.5"
+    }
+}

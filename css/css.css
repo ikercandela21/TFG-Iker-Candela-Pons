@@ -1,0 +1,576 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    height: 100%;
+    padding: 2em;
+}
+
+/* Pagina inicio de sesion */
+.main-InicioSesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-inicio {
+    background-color: #3B82F6;
+    width: 100%;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #3B82F6;
+    padding: 0em 2em;
+    border-radius: 5%;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.container:hover {
+    box-shadow: 4px 4px 10px #000;
+    transition: 0.5s;
+}
+
+.container input,
+.btn {
+    margin: 0.5em 0em;
+    padding: 0.5em;
+    border: 0px solid #000;
+    border-radius: 1em;
+    box-shadow: 2px 2px 5px #000;
+    background-color: #fff;
+}
+
+.container input:hover,
+.btn:hover {
+    box-shadow: 4px 4px 10px #000;
+    transition: 0.5s;
+}
+
+.registro {
+    text-decoration: underline;
+    color: white;
+}
+
+/* PAGINA DE REGISTRO */
+
+header {
+    background-color: #3B82F6;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+header p {
+    margin: 0.5em 0em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.descripcion {
+    text-align: center;
+    padding: 1em;
+}
+
+.main-registro input {
+    margin: 0.5em 0em;
+    padding: 0.5em;
+    border: 0px solid #000;
+    border-radius: 1em;
+    box-shadow: 2px 2px 5px #000;
+    background-color: #fff;
+}
+
+.main-registro input:hover {
+    box-shadow: 4px 4px 10px #000;
+    transition: 0.5s;
+}
+
+/* --------------Pagina principal-------------- */
+
+
+/* Estilo viñetas juegos */
+.cartas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    justify-items: center;
+    margin: 1em;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 4px 4px 10px #000;
+    transition: 0.5s;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.buscador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.contacto {
+    padding-left: 2.5em;
+}
+
+#flecha {
+    position: fixed;
+    bottom: 30px;
+    left: 10px;
+    z-index: 1100;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* PAGINA PRINCIPAL ADMIN */
+
+.Usuario {
+    grid: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-movil {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #3B82F6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu-movil a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.menu-movil.active .menu-movil {
+    display: flex;
+}
+
+header .menu-movil {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menu-escritorio {
+    display: none;
+}
+
+h2 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.botones-Admin {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ------------MENU HAMBURGUESA----------------- */
+
+.hamburger {
+    color: black;
+    padding: 15px;
+    cursor: pointer;
+
+}
+
+.mobile-menu-items {
+    background-color: #3B82F6;
+    display: none;
+}
+
+.mobile-menu-items.active {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+}
+
+.mobile-menu-items a {
+    display: block;
+    position: relative;
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #777;
+}
+
+#carrito {
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ---------------Añadir juego------------- */
+.formulario-AñadirJuego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.agregarJuego {
+    margin: 1.5em;
+    padding: 0.5em;
+    background-color: #3B82F6;
+    border-radius: 0.5em;
+    box-shadow: 0 0.1em 0.3em black;
+}
+
+.formulario-AñadirJuego input,
+select,
+textarea {
+    padding: 0.5em;
+    border: 0px solid #000;
+    border-radius: 0.3em;
+}
+
+#imagen {
+    width: 100%;
+}
+
+/* --------Registrar Usuario--------------- */
+.formulario-Registro-Usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #3B82F6;
+}
+
+.formularioRegistro {
+    margin: 1.5em;
+    padding: 0.5em;
+    background-color: #3B82F6;
+    border-radius: 0.5em;
+    box-shadow: 0 0.1em 0.3em black;
+
+}
+
+.formulario-Registro-Usuario input,
+select {
+    padding: 0.5em;
+    border: 0px solid #000;
+    border-radius: 0.3em;
+}
+
+/* -------------Carrito------------------ */
+.main-carrito,
+.juego-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.basura,
+#botones {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ---------------BIBLIOTECA---------------- */
+.botonDescargaPdf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* -------------Clientes--------- */
+
+.botonClientes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* -----------Actualizar usuario------------- */
+.actualizar-Usuario {
+    display: flex;
+    align-items: center;
+}
+
+
+/* --------SLIDE------------ */
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* -----------FOOTER--------- */
+footer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    background-color: #3B82F6;
+    padding: 1em;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+
+/*---------------- Borrar Juego-------------- */
+.errorBorrar {
+    background-color: #3B82F6;
+    padding: 2em;
+}
+
+.errorBorrar button,
+a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+}
+
+/* -----------Consulta de saldo de Stripe------------- */
+.datos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#saldo-card {
+    margin: 0;
+    font-size: 2em;
+    color: #3B82F6;
+}
+
+/* ---------------Editar Clientes-------------- */
+.tabla-responsiva {
+    width: 100%;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* -------Tablet-------- */
+@media (min-width:768px) {
+
+    .mobile-menu,
+    #carrito {
+        display: none;
+    }
+
+    .menu-escritorio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .menu-escritorio a {
+        color: black;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .menu-escritorio a:hover {
+        background-color: #375990;
+        color: white;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
+
+
+    /* -------Registro Usuario */
+    .formulario-Registro-Usuario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #3B82F6;
+    }
+
+    .formularioRegistro {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25em;
+        background-color: #3B82F6;
+        border-radius: 0.5em;
+        box-shadow: 0 0.125em 0.3125em black;
+        max-width: 37.5em;
+        margin: 2.5em auto;
+
+    }
+
+    /* Añadir Juego */
+    .formulario-AñadirJuego {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .agregarJuego {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25em;
+        background-color: #3B82F6;
+        border-radius: 0.5em;
+        box-shadow: 0 0.125em 0.3125em black;
+        max-width: 37.5em;
+        margin: 2.5em auto;
+    }
+
+    /* -------Carrito---------- */
+
+    .juego-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    /* ---------Pagina principal------------ */
+
+    .slider {
+        width: 50%;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+
+    }
+
+    .slide {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* ---------------Escritorio------------ */
+
+@media (min-width: 1024px) {
+
+
+
+    /* Tarjetas */
+    .card-container {
+
+        height: 100%;
+    }
+
+
+
+    /* ----------CARRITO----------- */
+
+    .juego-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    /* --------Registrar Usuario--------------- */
+    .formularioRegistro {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25em;
+        background-color: #3B82F6;
+        border-radius: 0.5em;
+        box-shadow: 0 0.125em 0.3125em black;
+        max-width: 37.5em;
+        margin: 2.5em auto;
+
+    }
+
+}
